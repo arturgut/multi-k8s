@@ -4,7 +4,7 @@ services:
   - docker
 
 before_install:
-  - docker build -t mrsouliner/react-test -f ./client/Dockerfile.dev .
+  - docker build -t mrsouliner/react-test -f ./client/Dockerfile.dev ./client
 
 script: 
   - docker run -e CI=true mrsouliner/react-test npm test
