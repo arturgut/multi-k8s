@@ -20,3 +20,15 @@ after_success:
   - docker push mrsouliner/multi-nginx
   - docker push mrsouliner/multi-server
   - docker push mrsouliner/multi-worker
+
+deploy:
+  edge: true
+  provider: elasticbeanstalk
+  region: eu-west-1
+  env: MultiDocker2-env
+  bucket_name: elasticbeanstalk-eu-west-1-253360846915
+  bucket_path: docker-multi
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
