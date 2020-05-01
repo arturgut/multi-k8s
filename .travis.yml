@@ -12,7 +12,7 @@ before_install:
   - gcloud components update kubectl
   - gcloud auth activate-service-account --key-file service-account.json
   - gcloud config set project charged-dialect-275809
-  - glcoud config set compute/zone europe-west1-b
+  - gcloud config set compute/zone europe-west1-b
   - gcloud container cluster get-credentials multi-cluster
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker build -t mrsouliner/react-test -f ./client/Dockerfile.dev ./client
