@@ -1,0 +1,20 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: k8s-multi-com-tls
+spec:
+  secretName: k8s-multi-com
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: souliner-lab.info
+  dnsNames:
+    - souliner-lab.info
+    - www.souliner-lab.info
+  acme:
+    config:
+      - http01:
+          ingressClass: nginx
+        domains:
+          - souliner-lab.info
+          - www.souliner-lab.info
